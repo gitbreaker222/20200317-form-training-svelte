@@ -1,5 +1,26 @@
 <script>
-	let name = 'world';
+  import Aform from './Aform.svelte'
+
+  let name = 'world'
 </script>
 
-<h1>Hello {name}!</h1>
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+    background: #eee;
+    padding: 1rem;
+  }
+</style>
+
+<main>
+  <Aform />
+</main>
