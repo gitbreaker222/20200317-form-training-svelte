@@ -16,10 +16,15 @@
     width: 100vw;
     height: 100vh;
     overflow: auto;
-    background: #eee;
+    color: #333;
+    background: #fff;
     padding: 1rem;
   }
 </style>
+
+<svelte:head>
+  <link rel="stylesheet" href="formstyles.css" />
+</svelte:head>
 
 <main>
   <Aform />
