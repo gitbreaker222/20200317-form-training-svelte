@@ -50,6 +50,7 @@
     pensionInstitute: '',
     pensionConfirm: false,
     pensionConfirmAt: '',
+    continueSearching: false,
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -518,6 +519,24 @@
           name="pensionConfirmAt"
           bind:value={formState.pensionConfirmAt} />
       </label>
+    </fieldset>
+
+    <fieldset disabled={!formState.continueSearching}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="continueSearching"
+            bind:checked={formState.continueSearching} />
+          Ich möchte weiter arbeitssuchend geführt werden:
+        </label>
+      </legend>
+
+      <p>
+        Das bedeutet, dass ich weiterhin eine neue Stelle suche, alle Änderungen
+        mitteile und Termine bei meiner zuständigen Vermittlungsfachkraft
+        wahrnehme.
+      </p>
     </fieldset>
 
     <fieldset disabled={!formState.aaaa}>
