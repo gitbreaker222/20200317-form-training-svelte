@@ -35,6 +35,12 @@
     bankChange: false,
     bankIBAN: '',
     bankName: '',
+    taxChange: false,
+    taxChangeDetails: {
+      from: '',
+      newClass: '',
+      factor: '',
+    },
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -379,6 +385,40 @@
       <label>
         bei (Kreditinstitut):
         <input type="text" name="bankName" bind:value={formState.bankName} />
+      </label>
+    </fieldset>
+
+    <fieldset disabled={!formState.taxChange}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="aaaa"
+            bind:checked={formState.taxChange} />
+          Meine Steuerklasse hat sich geändert:
+        </label>
+      </legend>
+
+      <label>
+        Mit Wirkung ab:
+        <input
+          type="text"
+          name="from"
+          bind:value={formState.taxChangeDetails.from} />
+      </label>
+      <label>
+        Neue Steuerklasse:
+        <input
+          type="text"
+          name="newClass"
+          bind:value={formState.taxChangeDetails.newClass} />
+      </label>
+      <label>
+        gegebenenfalls Faktor:
+        <input
+          type="text"
+          name="factor"
+          bind:value={formState.taxChangeDetails.factor} />
       </label>
     </fieldset>
 
