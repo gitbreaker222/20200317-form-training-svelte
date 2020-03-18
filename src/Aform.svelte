@@ -44,6 +44,10 @@
     nameChange: false,
     nameChangeFrom: '',
     nameChangeNew: '',
+    pensionChange: false,
+    pensionReason: '',
+    pensionFrom: '',
+    pensionInstitute: '',
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -457,6 +461,40 @@
           type="text"
           name="nameChangeNew"
           bind:value={formState.nameChangeNew} />
+      </label>
+    </fieldset>
+
+    <fieldset disabled={!formState.pensionChange}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="pensionChange"
+            bind:checked={formState.pensionChange} />
+          Ich habe Rente beantragt:
+        </label>
+      </legend>
+
+      <label>
+        wegen:
+        <input
+          type="text"
+          name="pensionReason"
+          bind:value={formState.pensionReason} />
+      </label>
+      <label>
+        ab:
+        <input
+          type="date"
+          name="pensionFrom"
+          bind:value={formState.pensionFrom} />
+      </label>
+      <label>
+        bei (Rentenversicherungsträger):
+        <input
+          type="text"
+          name="pensionInstitute"
+          bind:value={formState.pensionInstitute} />
       </label>
     </fieldset>
 
