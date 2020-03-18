@@ -251,8 +251,16 @@
   <fieldset name="additional">
     <legend>Weitere Angaben:</legend>
 
-    <fieldset name="workInability">
-      <legend>Arbeitsunfähigkeit:</legend>
+    <fieldset name="workAbility" disabled={!formState.hasAbilityChange}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="hasAbilityChange"
+            bind:checked={formState.hasAbilityChange} />
+          Arbeitsunfähigkeit:
+        </label>
+      </legend>
 
       <label>
         Ich bin ab
