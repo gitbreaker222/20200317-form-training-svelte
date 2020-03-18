@@ -41,6 +41,9 @@
       newClass: '',
       factor: '',
     },
+    nameChange: false,
+    nameChangeFrom: '',
+    nameChangeNew: '',
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -422,6 +425,33 @@
       </label>
     </fieldset>
 
+    <fieldset disabled={!formState.nameChange}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="nameChange"
+            bind:checked={formState.nameChange} />
+          Mein Name hat sich geändert:
+        </label>
+      </legend>
+
+      <label>
+        Mit Wirkung ab:
+        <input
+          type="text"
+          name="nameChangeFrom"
+          bind:value={formState.nameChangeFrom} />
+      </label>
+      <label>
+        Neuer Name:
+        <input
+          type="text"
+          name="nameChangeNew"
+          bind:value={formState.nameChangeNew} />
+      </label>
+    </fieldset>
+
     <fieldset disabled={!formState.aaaa}>
       <legend>
         <label>
@@ -432,7 +462,7 @@
 
       <label>
         aaaa:
-        <input type="date" name="bbbb" bind:value={formState.bbbb} />
+        <input type="text" name="bbbb" bind:value={formState.bbbb} />
       </label>
     </fieldset>
 
