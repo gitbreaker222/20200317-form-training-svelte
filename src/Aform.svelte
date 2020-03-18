@@ -51,6 +51,7 @@
     pensionConfirm: false,
     pensionConfirmAt: '',
     continueSearching: false,
+    otherChanges: false,
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -541,6 +542,23 @@
         Das bedeutet, dass ich weiterhin eine neue Stelle suche, alle Änderungen
         mitteile und Termine bei meiner zuständigen Vermittlungsfachkraft
         wahrnehme.
+      </p>
+    </fieldset>
+
+    <fieldset disabled={!formState.otherChanges}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="otherChanges"
+            bind:checked={formState.otherChanges} />
+          Sonstige Änderungen:
+        </label>
+      </legend>
+
+      <p>
+        Vergleiche Nr. 8 des Merkblattes 1 für Arbeitslose (Unterlagen sind
+        beigefügt)
       </p>
     </fieldset>
 
