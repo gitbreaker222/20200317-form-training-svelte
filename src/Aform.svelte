@@ -72,13 +72,18 @@
   }
 
   fieldset {
-    max-height: 200vh;
+    max-height: 200rem;
     overflow: auto;
     transition: max-height 500ms;
   }
   fieldset:disabled {
     overflow: hidden;
-    max-height: 1em;
+    max-height: 1.5rem;
+    border: none;
+  }
+
+  fieldset legend {
+    margin-bottom: 1rem;
   }
 </style>
 
