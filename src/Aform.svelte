@@ -32,6 +32,9 @@
       city: '',
       telephone: '',
     },
+    bankChange: false,
+    bankIBAN: '',
+    bankName: '',
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -356,6 +359,41 @@
             bind:value={formState.moveDetails.telephone} />
         </label>
       </fieldset>
+    </fieldset>
+
+    <fieldset disabled={!formState.bankChange}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="bankChange"
+            bind:checked={formState.bankChange} />
+          Mein Konto hat sich geändert:
+        </label>
+      </legend>
+
+      <label>
+        IBAN:
+        <input type="number" name="bankIBAN" bind:value={formState.bankIBAN} />
+      </label>
+      <label>
+        bei (Kreditinstitut):
+        <input type="text" name="bankName" bind:value={formState.bankName} />
+      </label>
+    </fieldset>
+
+    <fieldset disabled={!formState.aaaa}>
+      <legend>
+        <label>
+          <input type="checkbox" name="aaaa" bind:checked={formState.aaaa} />
+          Aaaa:
+        </label>
+      </legend>
+
+      <label>
+        aaaa:
+        <input type="date" name="bbbb" bind:value={formState.bbbb} />
+      </label>
     </fieldset>
 
   </fieldset>
