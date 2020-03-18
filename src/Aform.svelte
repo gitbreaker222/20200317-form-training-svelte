@@ -52,6 +52,12 @@
     pensionConfirmAt: '',
     continueSearching: false,
     otherChanges: false,
+    benefitsReference: false,
+    benefitsChildSupport: false,
+    benefitsChildSupportId: '',
+    benefitsTransition: false,
+    benefitsTraining: false,
+    accountId: '',
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -562,18 +568,73 @@
       </p>
     </fieldset>
 
-    <fieldset disabled={!formState.aaaa}>
+    <fieldset disabled={!formState.benefitsReference}>
       <legend>
         <label>
-          <input type="checkbox" name="aaaa" bind:checked={formState.aaaa} />
-          Aaaa:
+          <input
+            type="checkbox"
+            name="benefitsReference"
+            bind:checked={formState.benefitsReference} />
+          Leistungsbezug:
         </label>
       </legend>
 
+      <p>
+        Die Vorstehenden Änderungen beziehen sich auf folgende Leistungen der
+        Agentur für Arbeit
+      </p>
+
       <label>
-        aaaa:
-        <input type="text" name="bbbb" bind:value={formState.bbbb} />
+        <input
+          type="checkbox"
+          name="benefitsChildSupport"
+          bind:checked={formState.benefitsChildSupport} />
+        Kindergeld:
       </label>
+      {#if formState.benefitsChildSupport}
+        <label>
+          Kindergeldnummer:
+          <input
+            type="text"
+            name="benefitsChildSupportId"
+            bind:value={formState.benefitsChildSupportId} />
+        </label>
+      {/if}
+
+      <label>
+        <input
+          type="checkbox"
+          name="benefitsTransition"
+          bind:checked={formState.benefitsTransition} />
+        Übergangsgeld:
+      </label>
+      {#if formState.benefitsTransition}
+        <label>
+          Kundennummer:
+          <input
+            type="text"
+            name="benefitsTransitionAccountId"
+            bind:value={formState.accountId} />
+        </label>
+      {/if}
+
+      <label>
+        <input
+          type="checkbox"
+          name="accountId"
+          bind:checked={formState.benefitsTraining} />
+        Berufsausbildungsbeihilfe:
+      </label>
+      {#if formState.benefitsTraining}
+        <label>
+          Kundennummer:
+          <input
+            type="text"
+            name="accountId"
+            bind:value={formState.accountId} />
+        </label>
+      {/if}
+
     </fieldset>
 
   </fieldset>
