@@ -18,7 +18,7 @@
     overflow: auto;
     color: #333;
     background: #fff;
-    padding: 1rem;
+    padding: 0.5rem;
   }
 </style>
 
