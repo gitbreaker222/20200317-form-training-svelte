@@ -1,4 +1,16 @@
+fieldset {
+  margin-bottom: 1rem;
+}
+
+fieldset legend input {
+  margin: 0;
+}
+
+label:hover {
+  box-shadow: 0 -2px 2px -2px currentColor inset;
+}
+
 input:invalid {
-  border-color: #e58d9e;
-  background: #ffdbe2;
+  border-bottom-color: #e58d9e;
+  border-bottom-width: 2px;
 }
