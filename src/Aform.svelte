@@ -48,6 +48,8 @@
     pensionReason: '',
     pensionFrom: '',
     pensionInstitute: '',
+    pensionConfirm: false,
+    pensionConfirmAt: '',
   }
   $: activityHasBegun = new Date(formState.newActivityInfos.from) <= new Date()
 
@@ -495,6 +497,26 @@
           type="text"
           name="pensionInstitute"
           bind:value={formState.pensionInstitute} />
+      </label>
+    </fieldset>
+
+    <fieldset disabled={!formState.pensionConfirm}>
+      <legend>
+        <label>
+          <input
+            type="checkbox"
+            name="pensionConfirm"
+            bind:checked={formState.pensionConfirm} />
+          Mir wurde Rente bewilligt:
+        </label>
+      </legend>
+
+      <label>
+        Rentenbescheid liegt bei:
+        <input
+          type="text"
+          name="pensionConfirmAt"
+          bind:value={formState.pensionConfirmAt} />
       </label>
     </fieldset>
 
